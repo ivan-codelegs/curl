@@ -71,6 +71,12 @@ add_library(
   ${HHEADERS} ${CSOURCES}
   )
 
+if(CURL_STATIC_CRT)
+   set_property( TARGET ${LIB_NAME} PROPERTY
+      MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>"
+   )
+endif()
+
 if(WIN32 AND NOT BUILD_SHARED_LIBS)
   set_target_properties(${LIB_NAME} PROPERTIES STATIC_LIBRARY_FLAGS ${CMAKE_EXE_LINKER_FLAGS})
 endif()
