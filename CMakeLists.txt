@@ -232,7 +232,7 @@ set(CMAKE_C_FLAGS "${CMAKE_ANSI_CFLAGS} ${CMAKE_C_FLAGS}")
 set(CMAKE_REQUIRED_FLAGS ${CMAKE_ANSI_CFLAGS})
 
 if(CURL_STATIC_CRT)
-   set_property( TARGET ${PROJECT_NAME} PROPERTY
+   set_property( TARGET cpr PROPERTY
       MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>"
    )
 endif()
